@@ -15,13 +15,14 @@
      A9=9(~)-|          |-10(~)=A10
               ----------
 */
-void setup()
+void setup() 
 {
-  Serial.begin(115200);     
 }
 
-void loop()
+void loop() 
 {
-  Serial.println("ProMicro Serial Print");
-  delay(1000);
+  TXLED1; delay(1000);  
+  TXLED0; delay(1000);   
+  RXLED1; delay(1000);   
+  RXLED0; delay(1000);
 }

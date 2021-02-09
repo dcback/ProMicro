@@ -17,11 +17,21 @@
 */
 void setup()
 {
-  Serial.begin(115200);     
+  Serial.begin(115200);
 }
 
 void loop()
 {
-  Serial.println("ProMicro Serial Print");
+  Serial.println("[ProMicro pinTest]");
+
+  Serial.print("A0="); Serial.println(A0);
+  Serial.print("A1="); Serial.println(A1);
+  Serial.print("A2="); Serial.println(A2);
+  Serial.print("A3="); Serial.println(A3);
+  Serial.print("A6="); Serial.println(A6);
+  Serial.print("A7="); Serial.println(A7);
+  Serial.print("A8="); Serial.println(A8);
+  Serial.print("A9="); Serial.println(A9);
+
   delay(1000);
 }

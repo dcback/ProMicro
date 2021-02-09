@@ -15,13 +15,24 @@
      A9=9(~)-|          |-10(~)=A10
               ----------
 */
+#define analogWritePin  17    // RX_LED
+
 void setup()
 {
-  Serial.begin(115200);     
+  Serial.begin(115200);    
 }
 
 void loop()
 {
-  Serial.println("ProMicro Serial Print");
+  unsigned int sensorValue = analogRead(A0);                  // read the analog in value
+  unsigned int pwmValue = map(sensorValue, 0, 1023, 0, 255);  // analogRead(0~1023), analogWrite(0~255)
+  analogWrite(analogWritePin, pwmValue);                      // change the analog out value:
+
+  Serial.print("sensor = [");
+  Serial.print(sensorValue);
+  Serial.print("]\t PWM = [");
+  Serial.print(pwmValue);
+  Serial.println("]");
+
   delay(1000);
 }

@@ -1,4 +1,4 @@
-/*
+/*  
     [ATmega32U4 Pinout]
               ----------
         TX=1-| ProMicro |-RAW
@@ -15,13 +15,21 @@
      A9=9(~)-|          |-10(~)=A10
               ----------
 */
+#include <AHT10.h>
+#include <Wire.h>
+
+AHT10 myAHT10(AHT10_ADDRESS_0X38);
+
 void setup()
 {
-  Serial.begin(115200);     
+  Serial.begin(115200);
+  myAHT10.begin();
 }
 
 void loop()
 {
-  Serial.println("ProMicro Serial Print");
-  delay(1000);
+  Serial.print(F("Temperature: ")); Serial.print(myAHT10.readTemperature());
+  Serial.print("\t");
+  Serial.print(F("Humidity: ")); Serial.println(myAHT10.readHumidity());
+  delay(3000);
 }
